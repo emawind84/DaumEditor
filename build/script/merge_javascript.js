@@ -94,8 +94,8 @@ function _importScript(filename) {
     addGlobalCount();
 }
 
-
-var DE_PREFIX = "../../../DaumEditor/daumeditor/js/";
+// TODO fix
+var DE_PREFIX = "../../daumeditor/js/";
 
 // 1. write trex/eval
 _importScript(DE_PREFIX + "trex/eval.js");

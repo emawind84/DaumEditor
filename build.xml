@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<project name="DaumEditor" basedir="." default="buildall">
+<project name="DaumEditor_sangah" basedir="." default="buildall">
     <property file="build.properties"/>
     <taskdef resource="net/sf/antcontrib/antlib.xml" classpath="${build.lib.antcontrib}" />
 	<taskdef resource="net/sf/antcontrib/antcontrib.properties" classpath="${build.lib.antcontrib}"/>
@@ -36,7 +36,7 @@
         </zip>
     </target>
     <target name="build" description="build artifacts" depends="build-css,build-js"/>
-    <target name="deploy" depends="get_version,packaging" description="upload the artifact on googlecode hosting">
+    <target name="deploy" depends="packaging" description="upload the artifact on googlecode hosting">
         <trycatch>
             <try>
                 <property file="${user.home}/daumeditor.credentials.properties"/>
@@ -62,7 +62,7 @@
         <mkdir dir="${build.target.js.escaped.dir}"/>
         <mkdir dir="${build.target.js.minified.dir}"/>
     </target>
-    <target name="merge_javascripts" depends="get_version">
+    <target name="merge_javascripts">
         <for list="${js.list}" param="module">
             <sequential>
                 <echo message="Merge @{module}.js ..."/>
