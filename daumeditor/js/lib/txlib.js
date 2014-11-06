@@ -27,22 +27,26 @@ var $tx = {};
 	 * 함수(=메소드) 소유자 객체로 미리 묶는 함수의 인스턴스를 반환. 반환된 함수는 원래의 것과 같은 인자를 가질 것이다.
 	 * @function
 	 */
-	Function.prototype.bind = function() {
-		var __method = this, args = $A(arguments), object = args.shift();
-		return function() {
-			return __method.apply(object, args.concat($A(arguments)));
+	if (!Function.prototype.bind) {
+		Function.prototype.bind = function() {
+			var __method = this, args = $A(arguments), object = args.shift();
+			return function() {
+				return __method.apply(object, args.concat($A(arguments)));
+			};
 		};
-	};
+	}
 	/**
 	 * 유하는 객체 함수(=메소드) 소유자 객체로 미리 묶는 함수의 인스턴스를 반환. 반환된 함수는 이것의 인자로 현재 이벤트 객체를 가질것이다.
 	 * @function
 	 */
-	Function.prototype.bindAsEventListener = function() {
-		var __method = this, args = $A(arguments), object = args.shift();
-		return function(event) {
-			return __method.apply(object, [event || _WIN.event].concat(args));
+	if (!Function.prototype.bindAsEventListener) {
+		Function.prototype.bindAsEventListener = function() {
+			var __method = this, args = $A(arguments), object = args.shift();
+			return function(event) {
+				return __method.apply(object, [event || _WIN.event].concat(args));
+			};
 		};
-	};
+	}
 	
 	var txlib = function(element) {
 		var args = arguments;

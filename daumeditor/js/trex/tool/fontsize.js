@@ -5,21 +5,33 @@
  * 
  *   
  */
+TrexMessage.addMsg({
+	'@fontsize.label1': "가나다라마바사 (8pt)",
+	'@fontsize.label2': "가나다라마바사 (9pt)",
+	'@fontsize.label3': "가나다라마바사 (10pt)",
+	'@fontsize.label4': "가나다라마바사 (11pt)",
+	'@fontsize.label5': "가나다라마바사 (12pt)",
+	'@fontsize.label6': "가나다라마바사 (14pt)",
+	'@fontsize.label7': "가나다라마바사 (18pt)",
+	'@fontsize.label8': "가나다라마 (24pt)",
+	'@fontsize.label9': "가나다 (36pt)"
+});
+	
 TrexConfig.addTool(
 	"fontsize", 
 	{
 		sync: _TRUE,
 		status: _TRUE,
 		options: [
-			{ label: '가나다라마바사 (8pt)', title: '8pt', data: '8pt', klass: 'tx-8pt' },
-			{ label: '가나다라마바사 (9pt)', title: '9pt', data: '9pt', klass: 'tx-9pt' },
-			{ label: '가나다라마바사 (10pt)', title: '10pt', data: '10pt', klass: 'tx-10pt' },
-			{ label: '가나다라마바사 (11pt)', title: '11pt', data: '11pt', klass: 'tx-11pt' },
-			{ label: '가나다라마바사 (12pt)', title: '12pt', data: '12pt', klass: 'tx-12pt' },
-			{ label: '가나다라마바사 (14pt)', title: '14pt', data: '14pt', klass: 'tx-14pt' },
-			{ label: '가나다라마바사 (18pt)', title: '18pt', data: '18pt', klass: 'tx-18pt' },
-			{ label: '가나다라마 (24pt)', title: '24pt', data: '24pt', klass: 'tx-24pt' },
-			{ label: '가나다 (36pt)', title: '36pt', data: '36pt', klass: 'tx-36pt' }
+			{ label: TXMSG('@fontsize.label1'), title: '8pt', data: '8pt', klass: 'tx-8pt' },
+			{ label: TXMSG('@fontsize.label2'), title: '9pt', data: '9pt', klass: 'tx-9pt' },
+			{ label: TXMSG('@fontsize.label3'), title: '10pt', data: '10pt', klass: 'tx-10pt' },
+			{ label: TXMSG('@fontsize.label4'), title: '11pt', data: '11pt', klass: 'tx-11pt' },
+			{ label: TXMSG('@fontsize.label5'), title: '12pt', data: '12pt', klass: 'tx-12pt' },
+			{ label: TXMSG('@fontsize.label6'), title: '14pt', data: '14pt', klass: 'tx-14pt' },
+			{ label: TXMSG('@fontsize.label7'), title: '18pt', data: '18pt', klass: 'tx-18pt' },
+			{ label: TXMSG('@fontsize.label8'), title: '24pt', data: '24pt', klass: 'tx-24pt' },
+			{ label: TXMSG('@fontsize.label9'), title: '36pt', data: '36pt', klass: 'tx-36pt' }
 		]
 	}
 );

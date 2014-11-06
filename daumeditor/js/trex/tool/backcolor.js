@@ -4,6 +4,10 @@
  *  configuration과 Class Trex.Tool.BackColor을/를 포함
  * 
  */
+TrexMessage.addMsg({
+	"@backcolor.label1" : "가나다"
+});
+
 TrexConfig.addTool(
 	"backcolor",
 	{
@@ -14,21 +18,21 @@ TrexConfig.addTool(
 		useFavorite: _TRUE,
 		texts: {
 			options: [
-				{ color: '#ff0000', text: '#ffffff', label: '가나다' },
-				{ color: '#e545d0', text: '#ffffff', label: '가나다' },
-				{ color: '#000000', text: '#ffffff', label: '가나다' },
-				{ color: '#ff5e00', text: '#ffffff', label: '가나다' },
-				{ color: '#7c43b1', text: '#ffffff', label: '가나다' },
-				{ color: '#848484', text: '#ffffff', label: '가나다' },
-				{ color: '#ffbb00', text: '#ffffff', label: '가나다' },
-				{ color: '#4673ff', text: '#ffffff', label: '가나다' },
-				{ color: '#66e8ff', text: '#000000', label: '가나다' },
-				{ color: '#ffe400', text: '#ffffff', label: '가나다' }, 
-				{ color: '#1fafda', text: '#ffffff', label: '가나다' },
-				{ color: '#8cfccb', text: '#000000', label: '가나다' },
-				{ color: '#a8c40d', text: '#ffffff', label: '가나다' },
-				{ color: '#009999', text: '#ffffff', label: '가나다' },
-				{ color: '#ffffff', text: '#000000', label: '가나다' }
+				{ color: '#ff0000', text: '#ffffff', label: TXMSG('@backcolor.label1') },
+				{ color: '#e545d0', text: '#ffffff', label: TXMSG('@backcolor.label1') },
+				{ color: '#000000', text: '#ffffff', label: TXMSG('@backcolor.label1') },
+				{ color: '#ff5e00', text: '#ffffff', label: TXMSG('@backcolor.label1') },
+				{ color: '#7c43b1', text: '#ffffff', label: TXMSG('@backcolor.label1') },
+				{ color: '#848484', text: '#ffffff', label: TXMSG('@backcolor.label1') },
+				{ color: '#ffbb00', text: '#ffffff', label: TXMSG('@backcolor.label1') },
+				{ color: '#4673ff', text: '#ffffff', label: TXMSG('@backcolor.label1') },
+				{ color: '#66e8ff', text: '#000000', label: TXMSG('@backcolor.label1') },
+				{ color: '#ffe400', text: '#ffffff', label: TXMSG('@backcolor.label1') }, 
+				{ color: '#1fafda', text: '#ffffff', label: TXMSG('@backcolor.label1') },
+				{ color: '#8cfccb', text: '#000000', label: TXMSG('@backcolor.label1') },
+				{ color: '#a8c40d', text: '#ffffff', label: TXMSG('@backcolor.label1') },
+				{ color: '#009999', text: '#ffffff', label: TXMSG('@backcolor.label1') },
+				{ color: '#ffffff', text: '#000000', label: TXMSG('@backcolor.label1') }
 			]
 		},
 		thumbs: Trex.__CONFIG_COMMON.thumbs,

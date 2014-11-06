@@ -113,7 +113,8 @@ Trex.Attachment = Trex.Class.draft(/** @lends Trex.Attachment.prototype */{
 			}
 			this.canvas.execute(function(processor) {
 				processor.moveCaretWith(_pastescope);
-				processor.pasteContent(_dispHtml, _TRUE, {
+				// TODO fixed
+				processor.pasteContent(_dispHtml, _FALSE, {
 					'style': _style
 				});
 			});

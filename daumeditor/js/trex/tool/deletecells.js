@@ -4,14 +4,19 @@
  * Class Trex.Tool.deletecells configuration을 포함    
  *     
  */
+TrexMessage.addMsg({
+	'@deletecells.label1': '행 삭제',
+	'@deletecells.label2': '열 삭제'
+});
+
 TrexConfig.addTool(
 	"deletecells",
 	{
 		sync: _FALSE,
 		status: _TRUE,
 		options: [
-			{ label: '행 삭제', title: '행 삭제', data: 'deleteRow' , klass: 'tx-deletecells-1'},
-			{ label: '열 삭제', title: '열 삭제', data: 'deleteCol' , klass: 'tx-deletecells-2'}
+			{ label: TXMSG('@deletecells.label1'), title: TXMSG('@deletecells.label1'), data: 'deleteRow' , klass: 'tx-deletecells-1'},
+			{ label: TXMSG('@deletecells.label2'), title: TXMSG('@deletecells.label2'), data: 'deleteCol' , klass: 'tx-deletecells-2'}
 		]
 	}
 );

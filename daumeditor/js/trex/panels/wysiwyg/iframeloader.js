@@ -114,8 +114,9 @@
             '<meta http-equiv="Content-Type" content="text/html; charset=utf-8">' +
             '<title>DaumEditor Wygiwyg Panel</title>' +
             '<script id="txScriptForEval"></script>' +
+            '<link rel="stylesheet" href="' + cssBasePath + 'content_reset.css" type="text/css"></link>' +
 			'<link rel="stylesheet" href="' + cssBasePath + 'content_view.css" type="text/css"></link>' +
-            '<link rel="stylesheet" href="' + cssBasePath + 'content_wysiwyg.css" type="text/css"></link>' +
+            //'<link rel="stylesheet" href="' + cssBasePath + 'content_wysiwyg.css" type="text/css"></link>' +
             '<style id="txStyleForSetRule"></style>' +
 			'</head>' +
             '<body class="tx-content-container">' +

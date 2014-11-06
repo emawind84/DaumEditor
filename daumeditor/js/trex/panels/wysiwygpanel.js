@@ -282,7 +282,7 @@
 		applyBodyStyles: function(styles) {
 			var doc = this.wysiwygDoc;
 			try {
-				this.setFontStyle(doc, styles);
+				//this.setFontStyle(doc, styles);
 				this.setBodyStyle(doc, styles);
 			} catch(e) {
 			}
@@ -484,7 +484,8 @@
 					}
 				}
 				if ($tom.getLength(node) === 1 && node.innerHTML === '&nbsp;') {
-					node.innerHTML = '';
+					// TODO fix do not remove this space (tinymce leave &nbsp;)!
+					//node.innerHTML = '';
 				}
 			}
 		}

@@ -217,7 +217,18 @@
 			if (DEFAULT_OPTIONS.environment === ENV_DEVELOPMENT) {
 				url = url + '?dummy=' + new Date().getTime();				
 			}
-			document.write('<script type="text/javascript" src="' + url + '" charset="utf-8"></script>');
+			
+			if( typeof jQuery !== "undefined" ) {
+				jQuery.ajax({
+					url: url,
+					cache: false,
+					async: false,
+					dataType: "script"
+				});
+			} else {
+			//$("head").append('<script type="text/javascript" src="' + url + '" charset="utf-8"></script>');
+				document.write('<script type="text/javascript" src="' + url + '" charset="utf-8"></script>');
+			}
 		},
 
 		/**

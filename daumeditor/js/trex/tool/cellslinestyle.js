@@ -12,10 +12,10 @@ TrexConfig.addTool(
 		sync: _FALSE,
 		status: _TRUE,
 		options: [
-			{ label: TXMSG('@cellslinestyle.subtitle1'), title: '테두리 없음', data: 'none', klass: 'tx-cellslinestyle-1' },
-			{ label: TXMSG('@cellslinestyle.subtitle2'), title: '실선', data: 'solid', klass: 'tx-cellslinestyle-2' },
-			{ label: TXMSG('@cellslinestyle.subtitle3'), title: '점선', data: 'dotted', klass: 'tx-cellslinestyle-3' },
-			{ label: TXMSG('@cellslinestyle.subtitle4'), title: '작은 점선', data: 'dashed', klass: 'tx-cellslinestyle-4' }
+			{ label: TXMSG('@cellslinestyle.subtitle1'), title: TXMSG('@cellslinestyle.subtitle1'), data: 'none', klass: 'tx-cellslinestyle-1' },
+			{ label: TXMSG('@cellslinestyle.subtitle2'), title: TXMSG('@cellslinestyle.subtitle2'), data: 'solid', klass: 'tx-cellslinestyle-2' },
+			{ label: TXMSG('@cellslinestyle.subtitle3'), title: TXMSG('@cellslinestyle.subtitle3'), data: 'dotted', klass: 'tx-cellslinestyle-3' },
+			{ label: TXMSG('@cellslinestyle.subtitle4'), title: TXMSG('@cellslinestyle.subtitle4'), data: 'dashed', klass: 'tx-cellslinestyle-4' }
 		]
 	}
 );

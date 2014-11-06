@@ -1,7 +1,7 @@
 /*==== attachbox ====*/
 	.tx-attach-active { display:none; position:absolute; z-index:100000; background-color:#7E94BF; filter:alpha(opacity=30); opacity:0.3; }
 	.tx-attach-div {margin:10px 0 0 0; display:none; }
-	.tx-attach-div div.tx-attach-txt { float:left; font-weight:bold; font-family:gulim,tahoma,sans-serif; font-size:12px; line-height:1.4; }
+	.tx-attach-div div.tx-attach-txt { float:left; font-weight:bold; font-size:12px; line-height:1.4; }
 	.tx-attach-box {  border:1px #D5D5D5 solid; background:#FAFAFA; margin:10px 0 15px 70px; padding:0 0 5px 0;}
 	.tx-attach-box .tx-attach-box-inner { border:1px #fff solid; padding:5px 0 0 5px; }
 
@@ -23,11 +23,11 @@
 	.tx-attach-box .tx-upload-progress { position:absolute; z-index:20; top:45px; left:320px; width:300px; height:40px; padding:10px; border:1px #aaa solid; background:#fff; display:none; }
 	*+html .tx-attach-box .tx-upload-progress { left:150px;}
 	* html .tx-attach-box .tx-upload-progress { left:150px;}
-	.tx-attach-box .tx-upload-progress div { border:1px #ddd solid; background:#FB6235 url(../../../images/icon/editor/progress_01.gif?v=2); width:10px; height:15px; font-size:11px; font-family:dotum,verdana; color:#fff; text-align:center; padding: 3px 0 2px; }
-	.tx-attach-box .tx-upload-progress p { font-size:11px; font-family:dotum,verdana; color:#666; text-align:center; }
+	.tx-attach-box .tx-upload-progress div { border:1px #ddd solid; background:#FB6235 url(../../../images/icon/editor/progress_01.gif?v=2); width:10px; height:15px; font-size:11px; color:#fff; text-align:center; padding: 3px 0 2px; }
+	.tx-attach-box .tx-upload-progress p { font-size:11px; color:#666; text-align:center; }
 
 	.tx-attach-box .tx-attach-top { height:21px; margin:1px 0 4px 0; }
-	.tx-attach-box .tx-attach-top li { list-style:none; float:left; font-size:11px; font-family:dotum,verdana; color:#666; }
+	.tx-attach-box .tx-attach-top li { list-style:none; float:left; font-size:11px; color:#666; }
 
 	.tx-attach-box .tx-attach-delete a {
 		display:block; margin:0 4px; width:57px; height:21px; text-indent:-100em; overflow:hidden;
@@ -61,9 +61,9 @@
 
 	.tx-attach-box .tx-attach-list li dl { width:100%; margin:0; padding:0; }
 
-	.tx-attach-box .tx-attach-list li .tx-name { float:left; font-size:11px; font-family:dotum,verdana; color:#666; padding:1px 0 0 0; cursor:pointer; }
+	.tx-attach-box .tx-attach-list li .tx-name { float:left; font-size:11px; color:#666; padding:1px 0 0 0; cursor:pointer; }
 	.tx-attach-box .tx-attach-list li.tx-existed .tx-name { color:#999; }
-	.tx-attach-box .tx-attach-list .tx-name strong { font-family:dotum; font-size:11px; color:#ed1c24; font-weight: normal; letter-spacing:-1px; }
+	.tx-attach-box .tx-attach-list .tx-name strong { font-size:11px; color:#ed1c24; font-weight: normal; letter-spacing:-1px; }
 	.tx-attach-box .tx-attach-list li.tx-existed .tx-insert { display:none; }
 
 	.tx-attach-box .tx-attach-list li.tx-boxonly .tx-insert { display:none; }

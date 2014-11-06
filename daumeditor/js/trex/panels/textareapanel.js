@@ -85,6 +85,12 @@ Trex.Canvas.TextareaPanel = Trex.Class.create(/** @lends Trex.Canvas.TextareaPan
 	 */
 	setPanelHeight: function(height) {
 		this.$super.setPanelHeight((height.parsePx() - 2).toPx());
+		
+		/* TODO codemirror editor */
+		if( this.mrr ){
+			this.mrr.setSize( null, height.parsePx() );
+			this.mrr.refresh();
+		}
 	},
 	/**
 	 * panel의 readonly를 속성을 setting함으로써 글쓰기를 제한한다.

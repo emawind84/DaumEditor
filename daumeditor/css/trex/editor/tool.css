@@ -32,7 +32,7 @@
 
 /*==== fontsize ====*/
 	.tx-fontsize {padding-right:0;}
-	.tx-fontsize a:hover { text-decoration:none;font-family:dotum,sans-serif; }
+	.tx-fontsize a:hover { text-decoration:none; }
 	.tx-fontsize span{ line-height: 1.5 }
 	.tx-fontsize-menu { width:322px; }
 	.tx-fontsize-menu li.tx-menu-list-item a { line-height:100%; width:auto; height:auto;}
@@ -73,13 +73,13 @@
 	.tx-specialchar-menu div.tx-menu-matrix-list { display:none; border-collapse:collapse; margin-top:6px; background:#fff; }
 	.tx-specialchar-menu div.tx-menu-matrix-list table { border-collapse:collapse; margin-top: 0; width:460px }
 	.tx-specialchar-menu div.tx-menu-matrix-list td { border:1px solid #e5e5e5; padding:0; width:22px; height:20px;}
-	.tx-specialchar-menu div.tx-menu-matrix-list td span { display:block; width:18px; height:14px; text-align:center; color:#333; font-family:gulim,tahoma,sans-serif; font-size:12px; line-height:1.4; padding-top:2px; border:2px solid #fff; cursor:pointer; }
+	.tx-specialchar-menu div.tx-menu-matrix-list td span { display:block; width:18px; height:14px; text-align:center; color:#333;  font-size:12px; line-height:1.4; padding-top:2px; border:2px solid #fff; cursor:pointer; }
 	.tx-specialchar-menu div.tx-menu-matrix-list td span.tx-item-hovered { color:#333; border:2px solid #768fbd; }
 	
 	.tx-specialchar-menu dl.tx-menu-matrix-input {width:460px;margin-top:8px;height:22px;}
 	.tx-specialchar-menu dl.tx-menu-matrix-input dt { float:left; padding:0 6px 0 0;}
 	.tx-specialchar-menu dl.tx-menu-matrix-input dd { float:left; }
-	.tx-specialchar-menu dl.tx-menu-matrix-input dt span { color:#333; font-size:11px; font-family: dotum, sans-serif; padding-right:6px; }
+	.tx-specialchar-menu dl.tx-menu-matrix-input dt span { color:#333; font-size:11px; sans-serif; padding-right:6px; }
 	.tx-specialchar-menu dl.tx-menu-matrix-input dd input { color:#666; width:278px; height:16px; padding:0; border:1px solid #cacaca; }
 	.tx-specialchar-menu dl.tx-menu-matrix-input dd .tx-menu-btn-confirm { margin-left:5px; cursor:pointer; }
 	.tx-specialchar-menu dl.tx-menu-matrix-input dd .tx-menu-btn-cancel { margin-left:3px; cursor:pointer; }
@@ -88,10 +88,10 @@
 	.tx-link a.tx-icon {background-position:-26px -70px;}
 	
 	.tx-link-menu { width:238px;}
-	.tx-link-menu div.tx-menu-inner { padding:10px 10px 0; color:#666; font-size:11px; font-family:dotum,sans-serif; letter-spacing:-1; }
+	.tx-link-menu div.tx-menu-inner { padding:10px 10px 0; color:#666; font-size:11px;  letter-spacing:-1; }
 	.tx-link-menu dt { text-align:center; font-weight:normal; padding-bottom: 11px; }
 	.tx-link-menu dd { text-align:center; padding:0; }
-	.tx-link-menu input.tx-text-input { width:216px; height:15px; font-size: 11px; font-family:dotum,sans-serif; color:#666; border:1px solid #cacaca; padding:3px 2px 2px; margin-bottom: 5px; }
+	.tx-link-menu input.tx-text-input { width:216px; height:15px; font-size: 11px;  color:#666; border:1px solid #cacaca; padding:3px 2px 2px; margin-bottom: 5px; }
 	* html .tx-link-menu p input { height:20px;  }
 	.tx-link-menu dd.tx-rp { text-align:left; padding:0; }
 	.tx-link-menu dd.tx-rp span { margin-right: 20px; }
@@ -307,7 +307,6 @@
 		width:175px;
 		color: #333;
 		font-size:11px;
-		font-family: dotum,sans-serif;
 		background-color: #fbfbfb;
 	}
 	.tx-table-menu a{
@@ -338,7 +337,6 @@
 	.tx-table-menu .tx-dynamic-sizer-display span{
 		font-weight: bold;
 		color: #7c84ef;
-		font-family: dotum,sans-serif;
 		font-size:11px;
 	}
 	.tx-table-menu .tx-dynamic-sizer-context table{ 
@@ -389,15 +387,18 @@
 	}
 	
 	.tx-content {border:1px solid #acacac;}
-	.tx-table-menu input{
-		border: 1px solid #bababa;
-		font-family:dotum,sans-serif;
-		font-size:11px;
+	.tx-table-menu input {
+		border:1px solid #bababa;
 		color:#333;
-		width:60px;
+		font-size:11px;
 		height:16px;
 		padding:0;
-		margin-left:15px;
+		width:58px;
+	}
+	
+	.tx-table-menu span {
+		display:inline-block;
+		width:70px;
 	}
 	.tx-table-menu .tx-table-input-area{
 		border:1px solid #e7e7e7;
@@ -414,7 +415,7 @@
 		text-indent:-1000em;
 		width:15px;
 		z-index:999;
-		left:102px;
+		left:115px;
 		position:absolute;
 	}
 	.tx-table-menu .tx-btn-add{
@@ -444,6 +445,9 @@
 		text-indent:-1000em;
 		float:left;
 		margin-left:3px;
+	}
+	.tx-table-menu .tx-col-field-label,.tx-table-menu .tx-row-field-label {
+		width:55px;
 	}
 	
 	.tx-table-btn-layer {
@@ -603,7 +607,6 @@
 	}
 	
 	.tx-table-edit .tx-table-edit-layout h4{
-		font-family: dotum,sans-serif;
 		display:block;
 		clear:both;
 		float:left;
@@ -696,7 +699,6 @@
 		background:url(../../../images/icon/editor/table/box2_left.gif) no-repeat;
 		height:55px;
 		font-size:11px;
-		font-family: dotum, sans-serif;
 		padding:0;
 	}
 	.tx-table-edit .tx-table-edit-design .tx-table-edit-design-wrapper{
@@ -717,7 +719,6 @@
 		display:inline;
 		color: #4d4d4d;
 		font-size:11px;
-		font-family: dotum, sans-serif;
 		padding-left:6px;
 		background:url(../../../images/icon/editor/ic_dot.gif) no-repeat scroll 0 5px;
 	}
@@ -822,7 +823,6 @@
 	.tx-table-edit .tx-table-edit-design .tx-table-edit-borderrange .tx-menu{
 		width:108px;
 		color: #595959;
-		font-family: dotum,sans-serif;
 		font-size:11px;
 	}
 	.tx-table-edit .tx-table-edit-design .tx-table-edit-borderrange .tx-menu .tx-menu-list{

@@ -181,9 +181,9 @@ Trex.MarkupTemplate.add(
 		'            <hr/>',
 		'        </dd>',
 		'        <dd>',
-		'            <img width="32" height="21" src="@insertlink.confirm.image"/>',
-		'            <img width="32" height="21" src="@insertlink.cancel.image"/>',
-		'            <img width="51" height="21" src="@insertlink.remove.image" style="display: none;"/>',
+		'            <img class="tx-confirm-image" src="@insertlink.confirm.image"/>',
+		'            <img class="tx-cancel-image" src="@insertlink.cancel.image"/>',
+		'            <img class="tx-remove-image" src="@insertlink.remove.image" style="display: none;"/>',
 		'        </dd>',
 		'    </dl>',
 		'</div>'

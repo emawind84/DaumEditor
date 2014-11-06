@@ -116,8 +116,8 @@ Trex.Editor = Trex.Class.create( /** @lends Trex.Editor.prototype */{
 	 * Editor에서 작성된 저장하기 위해 parsing된 글의 내용을  가져온다.
 	 * @see Trex.Canvas#getContent
 	 */
-	getContent: function() {
-		return this.getSaver().getContent();
+	getContent: function(outputMode) {
+		return this.getSaver().getContent(outputMode);
 	},
 	/**
 	 * Editor에 첨부된 첨부데이터 리스트를 가져온다.

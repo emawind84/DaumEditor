@@ -1,0 +1,20 @@
+.tx-cancel-image{height:21px;width:40px;}
+.tx-confirm-image{height:21px;width:24px;}
+.tx-canvas textarea{height:100%;resize:none;}
+.tx-cellsoutline-menu,.tx-mergecells-menu,.tx-deletecells-menu{width:120px;}
+.tx-colorpallete p.tx-pallete-input a{width:40px;}
+.tx-colorpallete p.tx-pallete-input input{width:55px;}
+.tx-insertcells-menu{width:130px;}
+.tx-link-menu{width:298px;}
+.tx-link-menu dd.tx-rp span{margin-right:8px;}
+.tx-richtextbox-menu{width:220px;}
+.tx-richtextbox-menu .tx-menu-footer{padding-left:78px;}
+.tx-richtextbox-menu div.tx-advanced-list dt{width:80px;}
+.tx-specialchar-menu dl.tx-menu-matrix-input{width:400px;}
+.tx-specialchar-menu dl.tx-menu-matrix-input dd input{width:150px;}
+.tx-styledlist-menu li.tx-menu-list-item a{background-image:url(../images/icon/editor/skin/06/tx_icon.gif?v=1);}
+.tx-table-menu .tx-btn-cancel{width:50px;}
+.tx-toolbar-boundary .tx-tableedit{background:url(../images/icon/editor/skin/06/tx_icon.gif?v=1) no-repeat;}
+a.tx-icon{background:url(../images/icon/editor/skin/06/tx_icon.gif?v=1);}
+.tx-deletecells-menu li.tx-menu-list-item a{width:auto;}
+.tx-mergecells-menu li.tx-menu-list-item a{width:auto;}

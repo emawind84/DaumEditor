@@ -200,10 +200,11 @@ Trex.module("make padding area inside Canvas with editor width",
                 var _guideAreaSizes = calculdateGuideArea();
                 
                 $tx.setStyle(_elLeftSpace, {
-                    width: _guideAreaSizes.leftWidth
+                    //width: _guideAreaSizes.leftWidth
+                	left: ( _guideAreaSizes.leftWidth.parsePx() - 30 ).toPx()
                 });
                 $tx.setStyle(_elRightSpace, {
-                    width: _guideAreaSizes.rightWidth,
+                    //width: _guideAreaSizes.rightWidth,
                     left: _guideAreaSizes.rightPos
                 });
     

@@ -19,11 +19,12 @@ Trex.install("editor.getSaver & editor.getDataAsJSON & editor.setDataByJSON",
 					return editor.getEntryProxy().getAttachments(_attachments, _TRUE);
 				}(),
 				'resultBox': function() {
-					var _resultBox = editor.getResultBox();
+					// TODO getResultBox undefined
+					//var _resultBox = editor.getResultBox();
 					var datas = [];
-					_resultBox.datalist.each(function(entry){
+					/*_resultBox.datalist.each(function(entry){
 						datas.push(entry.data);
-					});
+					});*/
 					return datas;
 				}(),
 				'formfield': editor.getForm().getFormField()
@@ -34,11 +35,11 @@ Trex.install("editor.getSaver & editor.getDataAsJSON & editor.setDataByJSON",
 			if(!jsonData) {
 				return;
 			}
-			var _editorMode = canvas.mode;
-			var _inputMode = jsonData.inputmode || _editorMode;
+			// TODO fix
+			var _inputMode = jsonData.inputmode || canvas.mode;
 			if (_inputMode == 'original') { //save
-			} else if(_inputMode != _editorMode) {
-				canvas.fireJobs(Trex.Ev.__CANVAS_MODE_INITIALIZE, _editorMode, _inputMode);
+			} else if(_inputMode != canvas.mode) {
+				canvas.fireJobs(Trex.Ev.__CANVAS_MODE_INITIALIZE, canvas.mode, _inputMode);
 				canvas.changeMode(_inputMode);
 			}
 			
@@ -49,7 +50,8 @@ Trex.install("editor.getSaver & editor.getDataAsJSON & editor.setDataByJSON",
 			}
 				
 			if(_content) {
-				_content = editor.getDocParser().convertAtLoad(_content, _editorMode, _inputMode); //onlyHTML
+				// TODO fix
+				_content = editor.getDocParser().convertAtLoad(_content, canvas.mode, _inputMode); //onlyHTML
 				canvas.initContent(_content);
 			}
 			
@@ -176,8 +178,11 @@ Trex.Save = Trex.Class.create({
         this.editor.fireJobs(Trex.Ev.__EDITOR_LOAD_DATA_END);
 	},
 	setDataByJSONToEditor: function (jsonData) {
+		console.log("setDataByJSONToEditor: ", jsonData);
 		this.editor.setDataByJSON({
-			'inputmode': (!jsonData.inputmode || jsonData.inputmode == 'html')? 'original': jsonData.inputmode,
+			// TODO fix
+			//'inputmode': (!jsonData.inputmode || jsonData.inputmode == 'html')? 'original': jsonData.inputmode,
+			'inputmode': jsonData.inputmode || this.canvas.mode,
 			'content': function() {
 				var _contentObj = jsonData.content;
 				if (typeof _contentObj == "string") {

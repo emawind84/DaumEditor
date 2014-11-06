@@ -37,12 +37,17 @@ Trex.register("filter > clear redundancy",
 
 		function removeSpacerParagraph(contents) {
 			// FTDUEDTR-1319
-			return $tx.msie ? contents.replace(/<p>\s*<\/p>/gi, '') : contents;
+			contents = $tx.msie ? contents.replace(/<p>\s*<\/p>/gi, '') : contents;
+			// TODO fix
+			return $tx.msie_nonstd ? contents.replace(/<p><br><\/p>/gi, '<p>&nbsp;</p>' ) : contents;
 		}
 
 		function makeSpacerParagraph(contents) {
 			// FTDUEDTR-1319
-			return $tx.msie ? contents.replace(/<p>\s*<\/p>/gi, $tom.EMPTY_PARAGRAPH_HTML) : contents;
+			//return $tx.msie ? contents.replace(/<p>\s*<\/p>/gi, $tom.EMPTY_PARAGRAPH_HTML) : contents;
+			contents = $tx.msie ? contents.replace(/<p>\s*<\/p>/gi, "<p>&nbsp;</p>") : contents;
+			// TODO fix
+			return contents.replace(/<p><br><\/p>/gi, "<p>&nbsp;</p>");
 		}
 
 		var docparser = editor.getDocParser();
@@ -52,18 +57,22 @@ Trex.register("filter > clear redundancy",
 					return contents;
 				},
 				'source@load': function (contents) {
+					console.log("source@load");
 					return removeSpacerParagraph(clearRedundancy(contents));
 				},
 				'html@load': function (contents) {
+					console.log("html@load");
 					return removeSpacerParagraph(clearRedundancy(contents));
 				},
 				'text4save': function (contents) {
 					return contents;
 				},
 				'source4save': function (contents) {
+					console.log("source4save");
 					return makeSpacerParagraph(contents);
 				},
 				'html4save': function (contents) {
+					console.log("html4save");
 					return makeSpacerParagraph(contents);
 				},
 				'text2source': function (contents) {

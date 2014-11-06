@@ -145,11 +145,12 @@ Trex.module("bind events with tools",
 				return;
 			}
 			for (var _name in _tools) {
+				// TODO fixed _btn could be undefined
 				var _tool = _tools[_name];
 				var _btn = _tool.button;
-				if (Trex.Canvas.__WYSIWYG_MODE == to) {
+				if (_btn && Trex.Canvas.__WYSIWYG_MODE == to) {
 					_btn.enable();
-				} else if (Trex.Canvas.__WYSIWYG_MODE == from) {
+				} else if (_btn && Trex.Canvas.__WYSIWYG_MODE == from) {
 					if (_tool.wysiwygonly) {
 						_btn.disable();
 					} else {
@@ -419,9 +420,13 @@ Trex.Tool = Trex.Class.draft(/** @lends Trex.Tool.prototype */{
 	 * @function
 	 */
 	resetWeave: function(){
-		this.button.removeHandler();
-		this.button.normalState();
-		this.button = _NULL;
+		// TODO [fix] button could be null
+		if( this.button ){
+			this.button.removeHandler();
+			this.button.normalState();
+			this.button = _NULL;
+		}
+		
 		this.menu = _NULL;
 		this.execute = _NULL;
 	},

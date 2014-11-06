@@ -4,16 +4,23 @@
  * Class Trex.Tool.Insert configuration을 포함    
  *     
  */
+TrexMessage.addMsg({
+	'@insertcells.label1': "위로 삽입",
+	'@insertcells.label2': "아래 삽입",
+	'@insertcells.label3': "왼쪽 삽입",
+	'@insertcells.label4': "오른쪽 삽입"
+});
+
 TrexConfig.addTool(
 	"insertcells",
 	{
 		sync: _FALSE,
 		status: _TRUE,
 		options: [
-			{ label: '위로 삽입', title: '위로 삽입', data: 'addRowUpper' , klass: 'tx-insertcells-1'},
-			{ label: '아래 삽입', title: '아래 삽입', data: 'addRowBelow', klass: 'tx-insertcells-2' },
-			{ label: '왼쪽 삽입', title: '왼쪽 삽입', data: 'addColLeft' , klass: 'tx-insertcells-3'},
-			{ label: '오른쪽 삽입', title: '오른쪽 삽입', data: 'addColRight', klass: 'tx-insertcells-4' }
+			{ label: TXMSG('@insertcells.label1'), title: TXMSG('@insertcells.label1'), data: 'addRowUpper' , klass: 'tx-insertcells-1'},
+			{ label: TXMSG('@insertcells.label2'), title: TXMSG('@insertcells.label2'), data: 'addRowBelow', klass: 'tx-insertcells-2' },
+			{ label: TXMSG('@insertcells.label3'), title: TXMSG('@insertcells.label3'), data: 'addColLeft' , klass: 'tx-insertcells-3'},
+			{ label: TXMSG('@insertcells.label4'), title: TXMSG('@insertcells.label4'), data: 'addColRight', klass: 'tx-insertcells-4' }
 		]
 	}
 );

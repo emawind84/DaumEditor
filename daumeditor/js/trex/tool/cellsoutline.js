@@ -4,7 +4,16 @@
  * Class Trex.Tool.celloutline configuration을 포함    
  *     
  */
-
+TrexMessage.addMsg({
+	'@cellsoutline.label1': '모든 테두리',
+	'@cellsoutline.label2': '바깥 테두리',
+	'@cellsoutline.label3': '안쪽 테두리',
+	'@cellsoutline.label4': '위쪽 테두리',
+	'@cellsoutline.label5': '아래쪽 테두리',
+	'@cellsoutline.label6': '왼쪽 테두리',
+	'@cellsoutline.label7': '오른쪽 테두리',
+	'@cellsoutline.label8': '테두리 없음'
+});
 
 TrexConfig.addTool(
 	"cellsoutline",
@@ -12,14 +21,14 @@ TrexConfig.addTool(
 		sync: _FALSE,
 		status: _TRUE,
 		options: [
-			{ label: '모든 테두리', title: '모든 테두리', data: 'all', klass: 'tx-cellsoutline-1' },
-			{ label: '바깥 테두리', title: '바깥 테두리', data: 'out', klass: 'tx-cellsoutline-2' },
-			{ label: '안쪽 테두리', title: '안쪽 테두리', data: 'in', klass: 'tx-cellsoutline-3' },
-			{ label: '위쪽 테두리', title: '위쪽 테두리', data: 'top' , klass: 'tx-cellsoutline-4' },
-			{ label: '아래쪽 테두리', title: '아래쪽 테두리', data: 'bottom', klass: 'tx-cellsoutline-5' },
-			{ label: '왼쪽 테두리', title: '왼쪽 테두리', data: 'left' , klass: 'tx-cellsoutline-6' },
-			{ label: '오른쪽 테두리', title: '오른쪽 테두리', data: 'right' , klass: 'tx-cellsoutline-7' },
-			{ label: '테두리 없음', title: '테두리 없음', data: 'none' , klass: 'tx-cellsoutline-8' }
+			{ label: TXMSG('@cellsoutline.label1'), title: TXMSG('@cellsoutline.label1'), data: 'all', klass: 'tx-cellsoutline-1' },
+			{ label: TXMSG('@cellsoutline.label2'), title: TXMSG('@cellsoutline.label2'), data: 'out', klass: 'tx-cellsoutline-2' },
+			{ label: TXMSG('@cellsoutline.label3'), title: TXMSG('@cellsoutline.label3'), data: 'in', klass: 'tx-cellsoutline-3' },
+			{ label: TXMSG('@cellsoutline.label4'), title: TXMSG('@cellsoutline.label4'), data: 'top' , klass: 'tx-cellsoutline-4' },
+			{ label: TXMSG('@cellsoutline.label5'), title: TXMSG('@cellsoutline.label5'), data: 'bottom', klass: 'tx-cellsoutline-5' },
+			{ label: TXMSG('@cellsoutline.label6'), title: TXMSG('@cellsoutline.label6'), data: 'left' , klass: 'tx-cellsoutline-6' },
+			{ label: TXMSG('@cellsoutline.label7'), title: TXMSG('@cellsoutline.label7'), data: 'right' , klass: 'tx-cellsoutline-7' },
+			{ label: TXMSG('@cellsoutline.label8'), title: TXMSG('@cellsoutline.label8'), data: 'none' , klass: 'tx-cellsoutline-8' }
 		]
 	}
 );

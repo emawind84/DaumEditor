@@ -25,8 +25,8 @@
 			pMarginZero: true,
             selectedMode: "html",
             readonly: _FALSE,
-            initHeight: 400,
-            minHeight: 200,
+            initHeight: 200,
+            minHeight: 50,
             ext: 'html',
             param: "",
             newlinepolicy: "p",
@@ -196,7 +196,9 @@
             };
         },
         getContainerWidth: function() {
-            return $tx.getDimensions(this.elContainer).width;
+        	// TODO temporary fix in IE9 the function return 0 in readonly mode
+        	return $(this.elContainer).outerWidth();
+            //return $tx.getDimensions(this.elContainer).width;
         },
         /**
          * Panels 객체들을 초기화한다.
@@ -284,7 +286,8 @@
 				return;
 			}
             this.mode = newMode;
-            this.fireJobs(Trex.Ev.__CANVAS_MODE_CHANGE, oldMode, newMode);
+            // TODO fix the event should be called after show
+            //this.fireJobs(Trex.Ev.__CANVAS_MODE_CHANGE, oldMode, newMode);
             _newPanel.setPanelHeight(_oldPanel.getPanelHeight());
             _newPanel.show();
             _oldPanel.hide();
@@ -297,6 +300,7 @@
             } catch (e) {
                 throw e;
             }
+            this.fireJobs(Trex.Ev.__CANVAS_MODE_CHANGE, oldMode, newMode);
         },
         /**
          * 현재 panel에 포커스를 준다.
