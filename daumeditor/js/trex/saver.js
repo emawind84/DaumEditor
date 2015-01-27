@@ -50,6 +50,7 @@ Trex.install("editor.getSaver & editor.getDataAsJSON & editor.setDataByJSON",
 			}
 				
 			if(_content) {
+				console.log('###44444 setDataByJSON')
 				// TODO fix
 				_content = editor.getDocParser().convertAtLoad(_content, canvas.mode, _inputMode); //onlyHTML
 				canvas.initContent(_content);

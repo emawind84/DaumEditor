@@ -310,7 +310,7 @@
 	.tx-icon em.tx-itsnew { right:1px; }
 
 /*==== menu ====*/
-	.tx-menu { display:none; border:1px solid #bababa; background:#ffffff; padding:1px; z-index:15000; position:absolute;left:0;top:28px; }
+	.tx-menu { display: none;border: 1px solid rgb(135, 135, 135);background: none repeat scroll 0% 0% #FFF;padding: 1px;z-index: 15000;position: absolute;left: 0px;top: 28px;margin: 5px; }
 	.tx-menu ul {margin:0;}
 	.tx-menu .tx-menu-inner { background:#f9f9f9; }
 		

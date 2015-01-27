@@ -25,10 +25,11 @@ TrexConfig.addTool(
 			{ label: TXMSG('@fontfamily.batang') + ' ' + TXMSG('@fontfamily.label1'), title: TXMSG('@fontfamily.batang'), data: 'Batang,바탕,serif', klass: 'tx-batang' },
 			{ label: TXMSG('@fontfamily.dotum') + ' ' + TXMSG('@fontfamily.label1'), title: TXMSG('@fontfamily.dotum'), data: 'Dotum,돋움,sans-serif', klass: 'tx-dotum' },
 			{ label: TXMSG('@fontfamily.gungsuh') + ' ' + TXMSG('@fontfamily.label1'), title: TXMSG('@fontfamily.gungsuh'), data: 'Gungsuh,궁서,serif', klass: 'tx-gungseo' },
+			{ label: 'Malgun Gothic' + ' ' + TXMSG('@fontfamily.label1'), title: 'Malgun Gothic', data: 'Malgun Gothic,맑은 고딕,sans-serif', klass: 'tx-malgung' },
 			{ label: 'Arial (<span class="tx-txt">abcde</span>)', title: 'Arial', data: 'Arial,sans-serif', klass: 'tx-arial' },
 			{ label: 'Verdana (<span class="tx-txt">abcde</span>)', title: 'Verdana', data: 'Verdana,sans-serif', klass: 'tx-verdana' },
-            { label: 'Courier New (<span class="tx-txt">abcde</span>)', title: 'Courier New', data: 'Courier New,monspace', klass: 'tx-courier-new' },
-            { label: 'Times New Roman (<span class="tx-txt">abcde</span>)', title: 'Times New Roman', data: 'Times New Roman,sans-serif', klass: 'tx-times-new-roman' }
+			{ label: 'Courier New (<span class="tx-txt">abcde</span>)', title: 'Courier New', data: 'Courier New,monospace', klass: 'tx-courier-new' },
+			{ label: 'Times New Roman (<span class="tx-txt">abcde</span>)', title: 'Times New Roman', data: 'Times New Roman,sans-serif', klass: 'tx-times-new-roman' }
 		]
 	}
 );

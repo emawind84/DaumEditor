@@ -431,6 +431,7 @@
          * @param {String} content - 컨텐츠
          */
         setContent: function(content) {
+        	console.log('### setContent');
             this.panels[this.mode].setContent(content);
             this.includeWebfontCss(content);
         },
@@ -439,6 +440,7 @@
          * @param {String} content - 컨텐츠
          */
         initContent: function(content) {
+        	console.log('### initContent');
             this.history.initHistory({
                 'content': content
             });

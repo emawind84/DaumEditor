@@ -1,6 +1,8 @@
 var TrexMessage = function () {
     var __MESSAGES = {};
-    $.extend(__MESSAGES, __DAUM_LABELS);
+    if( typeof __DAUM_LABELS !== "undefined" ){
+    	$.extend(__MESSAGES, __DAUM_LABELS);
+    }
 
     function decorateIconPath(message) {
         return (message.indexOf("#iconpath") > -1) ?
@@ -19,10 +21,12 @@ var TrexMessage = function () {
         },
 
         addMsg: function (messages) {
-        	return; // disabled
-        	if(!__MESSAGES.messages){
-        		$tx.deepcopy(__MESSAGES, messages);
+        	for (var prop in messages) {
+        		if( __MESSAGES.hasOwnProperty(prop) ){
+        			delete messages[prop];
+        		}
         	}
+    		$tx.deepcopy(__MESSAGES, messages);
         },
 
         printAll: function () {

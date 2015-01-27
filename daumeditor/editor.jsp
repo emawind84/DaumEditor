@@ -81,6 +81,7 @@
 					<li class="tx-list">
 						<div id="tx_fontfamily" unselectable="on" class="tx-slt-70bg tx-fontfamily">
 							<a href="javascript:;" title="<sangah:msg id='label.2003' />">굴림</a>
+							<a href="javascript:;" class="tx-arrow" title="<sangah:msg id='label.2014' />"><sangah:msg id='label.2014' /></a>
 						</div>
 						<div id="tx_fontfamily_menu" class="tx-fontfamily-menu tx-menu" unselectable="on"></div>
 					</li>
@@ -89,6 +90,7 @@
 					<li class="tx-list">
 						<div unselectable="on" class="tx-slt-42bg tx-fontsize" id="tx_fontsize">
 							<a href="javascript:;" title="<sangah:msg id='label.2001' />">9pt</a>
+							<a href="javascript:;" class="tx-arrow" title="<sangah:msg id='label.2014' />"><sangah:msg id='label.2014' /></a>
 						</div>
 						<div id="tx_fontsize_menu" class="tx-fontsize-menu tx-menu" unselectable="on"></div>
 					</li>
@@ -117,7 +119,7 @@
 					</li>
 					<li class="tx-list">
 						<div unselectable="on" class="		 tx-slt-tbg 	tx-forecolor" id="tx_forecolor">
-							<a href="javascript:;" class="tx-icon" title="<sangah:msg id='label.2002' />"><sangah:msg id='label.2002' /></a>
+							<a href="javascript:;" class="tx-icon" title="<sangah:msg id='label.2002' />">A</a>
 							<a href="javascript:;" class="tx-arrow" title="<sangah:msg id='label.1965' />"><sangah:msg id='label.1965' /></a>
 						</div>
 						<div id="tx_forecolor_menu" class="tx-menu tx-forecolor-menu tx-colorpallete"
@@ -125,7 +127,7 @@
 					</li>
 					<li class="tx-list">
 						<div unselectable="on" class="		 tx-slt-brbg 	tx-backcolor" id="tx_backcolor">
-							<a href="javascript:;" class="tx-icon" title="<sangah:msg id='label.2015' />"><sangah:msg id='label.2015' /></a>
+							<a href="javascript:;" class="tx-icon" title="<sangah:msg id='label.2015' />">A</a>
 							<a href="javascript:;" class="tx-arrow" title="<sangah:msg id='label.2014' />"><sangah:msg id='label.2014' /></a>
 						</div>
 						<div id="tx_backcolor_menu" class="tx-menu tx-backcolor-menu tx-colorpallete"
@@ -300,7 +302,7 @@
 			<div id="tx_toolbar_advanced" class="tx-toolbar tx-toolbar-advanced"><div class="tx-toolbar-boundary">
 				<ul class="tx-bar tx-bar-left">
 					<li class="tx-list">
-						<div class="tx-tableedit-title"></div>
+						<div class="tx-tableedit-title">Table</div>
 					</li>
 				</ul>
 
@@ -329,6 +331,7 @@
 					<li class="tx-list">
 						<div id="tx_cellslinepreview" unselectable="on" class="tx-slt-70lbg tx-cellslinepreview">
 							<a href="javascript:;" title='<sangah:msg id="label.1980"/>'></a>
+							<a href="javascript:;" class="tx-arrow" title="<sangah:msg id='label.2014' />"><sangah:msg id='label.2014' /></a>
 						</div>
 						<div id="tx_cellslinepreview_menu" class="tx-cellslinepreview-menu tx-menu"
 							 unselectable="on"></div>
@@ -476,7 +479,7 @@
 						initHeight: 150,
 						minHeight: 150,
 						selectedMode: "html", // text, source
-						doctype: "html", // xhtml, html
+						doctype: "edge",
 			            mode: ["text", "html", "source"],
 						pMarginZero: true,
 			            readonly: false,
@@ -612,6 +615,21 @@
 			return null;
 		},
 		
+		getHtmlContent: function(){
+			Editor.canvas.changeMode('html');
+			
+			//return "<!DOCTYPE HTML>" + $('html', Editor.getDocument() )[0].outerHTML;
+			
+			return '<!DOCTYPE HTML>'+
+			'<html lang="ko"><head>'+
+			'<meta http-equiv=\"Content-type\" content=\"text/html;charset=UTF-8\">'+
+			'<link rel="stylesheet" href="' + EditorJSLoader.getCSSBasePath() + 'content_reset.css" type="text/css"></link>' +
+			'<link rel="stylesheet" href="' + EditorJSLoader.getCSSBasePath() + 'content_view.css" type="text/css"></link>' +
+			'</head><body class="tx-content-container">' +
+			Editor.getContent() +
+			'</body></html>';
+		},
+		
 		/* Download function */
 		download: function(name){
 			var w = Editor._newwindow();
@@ -619,7 +637,7 @@
 	    	$.ajax({
 	    		url: "/Common/TemporaryFile/uploadContent.action",
 	    		data: {
-	    			"content" : "<!DOCTYPE HTML>" + $('html', w.document)[0].outerHTML
+	    			"content" : Editor.getHtmlContent()
 	    		},
 	    		type: "POST",
 	    		dataType: "json"
@@ -644,16 +662,10 @@
 		
 		_newwindow: function(){
 			var w = window.open();
-			w.document.write(
-					'<!DOCTYPE HTML>'+
-					'<html lang="ko"><head>'+
-					'<meta http-equiv=\"Content-type\" content=\"text/html;charset=UTF-8\">'+
-					'<link rel="stylesheet" href="' + EditorJSLoader.getCSSBasePath() + 'content_reset.css" type="text/css"></link>' +
-					'</head><body></body></html>'
-			);
+			w.document.write( Editor.getHtmlContent() );
 			w.document.close();
 			// set editor content into window's document's body
-			$(w.document.body).html( Editor.getContent() );
+			//$(w.document.body).html( Editor.getContent() );
 			// remove additional meta tags in the body
 			$( 'meta[http-equiv]', w.document.body ).remove();
 			return w;
