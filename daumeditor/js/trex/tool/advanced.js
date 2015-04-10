@@ -47,9 +47,11 @@ Trex.Tool.Advanced = Trex.Class.create({
 		});
 
 		_toolbar.observeJob(Trex.Ev.__CMD_ADVANCED_SPREAD, function() {
-			
-			$tx.show(_elAdvanced);
-			$tx.addClassName(_elBasic, 'tx-toolbar-basic-open');
+			// TODO fix if editor in readonly do not show advanced toolbar
+			if(!_toolbar.canvas.config.readonly){
+				$tx.show(_elAdvanced);
+				$tx.addClassName(_elBasic, 'tx-toolbar-basic-open');
+			}
 		});
 
 		var _toolHandler = function() {

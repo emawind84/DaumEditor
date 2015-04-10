@@ -242,7 +242,8 @@
         _isForceTextMode: function() {
             // 기존에는 아래의 조건이었으나 모바일에서의 호환은 아직 문제가 많아 제한함. 20140430
             // ($tx.ios && $tx.ios_ver < 5) || ($tx.android && $tx.android_ver < 3)
-            return $tx.ios || $tx.android;
+        	return false;
+            //return $tx.ios || $tx.android;
         },
         /**
          * Canvas의 mode를 바꾸는것으로, 현재 활성화되어있는 panel을 변경한다.
@@ -431,7 +432,6 @@
          * @param {String} content - 컨텐츠
          */
         setContent: function(content) {
-        	console.log('### setContent');
             this.panels[this.mode].setContent(content);
             this.includeWebfontCss(content);
         },
@@ -440,7 +440,6 @@
          * @param {String} content - 컨텐츠
          */
         initContent: function(content) {
-        	console.log('### initContent');
             this.history.initHistory({
                 'content': content
             });
@@ -542,7 +541,10 @@
 				        _processor.restore();
 			        }, 0);
 		        } else {
+		        	// TODO a contenteditable div will lose the selection if body.focus() is executed
+		        	var range = this.saveSelection();
                     _processor.focus();
+		        	this.restoreSelection(range);
 			        handler(_processor);
 			        _history.saveHistory();
 			        _processor.restore();
@@ -771,6 +773,32 @@
          */
         syncProperty: function() {
             this.triggerQueryStatus();
+        },
+        
+        saveSelection: function() {
+        	var processor = this.getProcessor();
+            if (processor.win.getSelection) {
+                sel = processor.win.getSelection();
+                if (sel.getRangeAt && sel.rangeCount) {
+                    return sel.getRangeAt(0);
+                }
+            } else if (processor.doc.selection && processor.doc.selection.createRange) {
+                return processor.doc.selection.createRange();
+            }
+            return null;
+        },
+
+        restoreSelection: function(range) {
+            if (range) {
+            	var processor = this.getProcessor();
+                if (processor.win.getSelection) {
+                    sel = processor.win.getSelection();
+                    sel.removeAllRanges();
+                    sel.addRange(range);
+                } else if (processor.doc.selection && range.select) {
+                    range.select();
+                }
+            }
         }
     });
 
