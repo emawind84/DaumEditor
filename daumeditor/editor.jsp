@@ -81,7 +81,7 @@
 					<li class="tx-list">
 						<div id="tx_fontfamily" unselectable="on" class="tx-slt-70bg tx-fontfamily">
 							<a href="javascript:;" title="<sangah:msg id='label.2003' />">굴림</a>
-							<a href="javascript:;" class="tx-arrow" title="<sangah:msg id='label.2014' />"><sangah:msg id='label.2014' /></a>
+							<a href="javascript:;" class="tx-arrow" title="<sangah:msg id='label.2003' />"><sangah:msg id='label.2003' /></a>
 						</div>
 						<div id="tx_fontfamily_menu" class="tx-fontfamily-menu tx-menu" unselectable="on"></div>
 					</li>
@@ -90,7 +90,7 @@
 					<li class="tx-list">
 						<div unselectable="on" class="tx-slt-42bg tx-fontsize" id="tx_fontsize">
 							<a href="javascript:;" title="<sangah:msg id='label.2001' />">9pt</a>
-							<a href="javascript:;" class="tx-arrow" title="<sangah:msg id='label.2014' />"><sangah:msg id='label.2014' /></a>
+							<a href="javascript:;" class="tx-arrow" title="<sangah:msg id='label.2001' />"><sangah:msg id='label.2001' /></a>
 						</div>
 						<div id="tx_fontsize_menu" class="tx-fontsize-menu tx-menu" unselectable="on"></div>
 					</li>
@@ -479,7 +479,7 @@
 						initHeight: 150,
 						minHeight: 150,
 						selectedMode: "html", // text, source
-						doctype: "edge",
+						doctype: "edge", // xhtml, html
 			            mode: ["text", "html", "source"],
 						pMarginZero: true,
 			            readonly: false,
@@ -506,8 +506,8 @@
 						attacher: {
 							image: {
 								objstyle: {
-									height: "100%", 
-									width: "100%" 
+									height: "auto", // really important or the image will not be rendered on pdf! 
+									width: "auto" 
 								}
 							}
 						}
@@ -529,12 +529,40 @@
 				
 				$(".tx-body").css("visibility", "visible");
 				
+				Editor.loadCodeMirror();
+				
 				Editor.canvas.observeJob( Trex.Ev.__CANVAS_DATA_INITIALIZE, function(){
 					Editor.loadCodeMirror();
 				});
 				Editor.canvas.observeJob( Trex.Ev.__CANVAS_MODE_CHANGE, function(){
 					Editor.loadCodeMirror();
 				});
+				
+				Editor.canvas.observeJob( Trex.Ev.__CANVAS_NORMAL_SCREEN_CHANGE, function(){
+					// change fullscreen button label
+					var l = '<sangah:msg id="label.2000" />';
+					$('.tx-btn-fullscreen').text(l).attr('title', l);
+				});
+				
+				Editor.canvas.observeJob( Trex.Ev.__CANVAS_FULL_SCREEN_CHANGE, function(){
+					// change fullscreen button label
+					var l = '<sangah:msg id="label.0383" />';
+					$('.tx-btn-fullscreen').text(l).attr('title', l);
+				});
+				
+				// Prevent the backspace key from navigating back.
+				/* $(Editor.getDocument()).unbind('keydown').bind('keydown', function (event) {
+				    var doPrevent = false;
+				    if (event.keyCode === 8) {
+				        var d = event.srcElement || event.target;
+				        console.log(d);
+				    	doPrevent = doPrevent || !d.isContentEditable;
+				    }
+				    doPrevent = true;
+				    if (doPrevent) {
+				        event.preventDefault();
+				    }
+				}); */
 				
 			}); 
 		},
@@ -689,6 +717,7 @@
 		     		"lib/codemirror.js",
 		     		"addon/fold/xml-fold.js",
 		     		"addon/edit/matchtags.js",
+		     		"addon/selection/active-line.js",
 		     		"mode/xml/xml.js",
 		     		"mode/javascript/javascript.js",
 		     		"mode/css/css.js",
@@ -699,12 +728,12 @@
 			if( !p.mrr ){
 				var editor = CodeMirror.fromTextArea( ta, {
 					mode: { name: "htmlmixed" },
-					//mode: 'text/html',
 					tabMode: "indent", 
 					lineNumbers : true,
 					indentUnit : 4,
 					matchTags: {bothTags: true},
-				    extraKeys: {"Ctrl-J": "toMatchingTag"}
+				    extraKeys: {"Ctrl-J": "toMatchingTag"},
+				    styleActiveLine: true
 				});
 				editor.setSize(null, p.getPanelHeight());
 				editor.on('change', function(){
