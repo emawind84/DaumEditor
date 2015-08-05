@@ -347,7 +347,8 @@ $tx.extend($tx, /** @lends $tx */{
         style = style == 'float' ? 'cssFloat' : style.camelize();
         var value = element.style[style];
         if (!value) {
-            var css = _DOC.defaultView.getComputedStyle(element, _NULL);
+			var win = (_DOC.defaultView || _DOC.parentWindow);
+            var css = win.getComputedStyle(element, _NULL);
             value = css ? css[style] : _NULL;
         }
         if (style == 'opacity')
@@ -846,6 +847,13 @@ $tx.extend($tx, /** @lends $tx */{
 				}
 			}
 			return _dest;
+		},
+		defaults: function(dest, source){
+			for(var name in source){
+				if(dest[name] === _UNDEFINED){
+					dest[name] = source[name];
+				}
+			}
 		}
 	});
 })();
@@ -1108,6 +1116,10 @@ $tx.extend($tx, /** @lends $tx */{
 			}  
 			return !isNaN(str);
 		},
+        isPercent: function(){
+            var str = this.trim();
+            return parseInt(str, 10)+'%' === str;
+        },
 		/**
 		 * 바이트를 계산하여 단위를(KB, MB) 붙여서 반환한다.
 		 * @function
@@ -1134,7 +1146,14 @@ $tx.extend($tx, /** @lends $tx */{
 			source = source.replace(new RegExp("(\\W)", "g"), "\\$1");
 			target = target.replace(new RegExp("\\$", "g"), "$$$$");
 			return this.replace(new RegExp(source, "gm"), target);
-		}
+		},
+        underscore :function () {
+        return this.replace(/::/g, '/')
+            .replace(/([A-Z]+)([A-Z][a-z])/g, '$1_$2')
+            .replace(/([a-z\d])([A-Z])/g, '$1_$2')
+            .replace(/-/g, '_')
+            .toLowerCase();
+        }
 	});
 })();
 

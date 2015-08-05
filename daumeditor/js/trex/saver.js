@@ -155,7 +155,22 @@ Trex.Save = Trex.Class.create({
 		}
 	*/
 	load: function(jsonData) { //NOTE: data format = JSON
-        this.editor.fireJobs(Trex.Ev.__EDITOR_LOAD_DATA_BEGIN);
+		jsonData = {
+			//'inputmode': (!jsonData.inputmode || jsonData.inputmode == 'html')? 'original': jsonData.inputmode,
+			'inputmode': jsonData.inputmode || this.canvas.mode,
+			'content': function() {
+				var _contentObj = jsonData.content;
+				if (typeof _contentObj == "string") {
+					return jsonData.content;
+				} else if (_contentObj && _contentObj.nodeType && (_contentObj.nodeType == 1)) {
+					return jsonData.content.value;
+				} else {
+					return '';
+				}
+			}(),
+			'attachments': jsonData.attachments
+		};
+        this.editor.fireJobs(Trex.Ev.__EDITOR_LOAD_DATA_BEGIN, jsonData);
 		if (!jsonData) {
 			throw new Error("[Exception]Trex.Save : not exist argument(data)");
 		}
@@ -179,23 +194,7 @@ Trex.Save = Trex.Class.create({
         this.editor.fireJobs(Trex.Ev.__EDITOR_LOAD_DATA_END);
 	},
 	setDataByJSONToEditor: function (jsonData) {
-		console.log("setDataByJSONToEditor: ", jsonData);
-		this.editor.setDataByJSON({
-			// TODO fix
-			//'inputmode': (!jsonData.inputmode || jsonData.inputmode == 'html')? 'original': jsonData.inputmode,
-			'inputmode': jsonData.inputmode || this.canvas.mode,
-			'content': function() {
-				var _contentObj = jsonData.content;
-				if (typeof _contentObj == "string") {
-					return jsonData.content;
-				} else if (_contentObj && _contentObj.nodeType && (_contentObj.nodeType == 1)) {
-					return jsonData.content.value;
-				} else {
-					return '';
-				}
-			}(),
-			'attachments': jsonData.attachments
-		});
+		this.editor.setDataByJSON(jsonData);
 	},
 	makeField: function() {
 		var _sidebar = this.sidebar;
