@@ -1,2 +1,14 @@
 @import url(trex/viewer/container.css);
 @import url(trex/viewer/tool.css);
+
+/*@@ SANGAH STUFF */
+
+/* center align for wrapper */
+.print_wrap{margin: 0 auto;}
+
+.tmp_show_on_recv,.tmp_show_on_proc,.tmp_show_on_sent{display: none;}
+
+@media print {
+	body{margin: 0;}
+	.input_field{border-width: 0;}
+}
