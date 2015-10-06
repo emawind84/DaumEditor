@@ -163,6 +163,7 @@ var CORE_FILES = [
 	// TODO. delete table buttons. but hanmailex?
 	// "trex/modules/tablebuttons.js",
 	"trex/modules/noticepanel.js",
+	"trex/modules/edit_image_popup.js",
 
 	"trex/modules/table.js",
 	"trex/modules/table/selector.js",

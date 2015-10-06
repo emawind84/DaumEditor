@@ -118,5 +118,9 @@ window.__DAUM_LABELS = {
    "@align.text.align.full":"양쪽정렬",
    "@align.text.align.left":"왼쪽정렬 (Ctrl+,)",
    "@align.text.align.right":"오른쪽정렬 (Ctrl+/)",
-   "@table.noselect.alert":"테이블을 선택하신 후 사용가능합니다."
+   "@table.noselect.alert":"테이블을 선택하신 후 사용가능합니다.",
+   "@image.editpopup.title": "이미지 설정",
+   "@image.editpopup.height": "높이",
+   "@image.editpopup.width": "너비",
+   "@image.editpopup.apply": "신청"
 };

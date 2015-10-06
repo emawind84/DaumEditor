@@ -118,5 +118,9 @@ window.__DAUM_LABELS = {
    "@align.text.align.full":"Justify",
    "@align.text.align.left":"Left-aligned (Ctrl+,)",
    "@align.text.align.right":"Right-aligned (Ctrl+/)",
-   "@table.noselect.alert":"Select a table first."
+   "@table.noselect.alert":"Select a table first.",
+   "@image.editpopup.title": "Edit Image Properties",
+   "@image.editpopup.height": "Height",
+   "@image.editpopup.width": "Width",
+   "@image.editpopup.apply": "Apply"
 };
