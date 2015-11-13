@@ -8,6 +8,9 @@
 
 .tmp_show_on_recv,.tmp_show_on_proc,.tmp_show_on_sent{display: none;}
 
+body[contenteditable=false] .input_field{
+	border-width: 0;
+}
 @media print {
 	body{margin: 0;}
 	.input_field{border-width: 0;}

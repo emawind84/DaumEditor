@@ -550,6 +550,12 @@
 					$('.tx-btn-fullscreen').text(l).attr('title', l);
 				});
 				
+				Editor.observeJob( Trex.Ev.__EDITOR_LOAD_DATA_END, function(){
+					if( !!Editor.config.canvas.readonly ){
+						$('[contenteditable]', Editor.getDocument()).attr('contenteditable', 'false');
+					}
+				});
+				
 				// Prevent the backspace key from navigating back.
 				/* $(Editor.getDocument()).unbind('keydown').bind('keydown', function (event) {
 				    var doPrevent = false;
@@ -590,13 +596,13 @@
 					Editor.__PANEL_READONLY = true;
 					$("#tx_canvas_wysiwyg").contents().find("body").attr( "contentEditable", "false" );
 					//$('.readonlyDiv').css('display', '');
-					$('.tx-toolbar').css('display', 'none');
+					//$('.tx-toolbar').css('display', 'none');
 				} else {
 					Editor.__PANEL_READONLY = false;
 					$("#tx_canvas_wysiwyg").contents().find("body").attr( "contentEditable", "true" );
 					//$("#tx_canvas_wysiwyg").contents().find(".tx-content-container").remove('.readonlyDiv');
 					//$('.readonlyDiv').css('display', 'none');
-					$('.tx-toolbar').css('display', '');
+					//$('.tx-toolbar').css('display', '');
 				}
 			}
 		},
