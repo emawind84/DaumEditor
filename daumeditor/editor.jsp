@@ -534,8 +534,10 @@
 				Editor.canvas.observeJob( Trex.Ev.__CANVAS_DATA_INITIALIZE, function(){
 					Editor.loadCodeMirror();
 				});
+				
 				Editor.canvas.observeJob( Trex.Ev.__CANVAS_MODE_CHANGE, function(){
 					Editor.loadCodeMirror();
+					Editor.fireJobs(Trex.Ev.__EDITOR_CONTENT_CHANGED);
 				});
 				
 				Editor.canvas.observeJob( Trex.Ev.__CANVAS_NORMAL_SCREEN_CHANGE, function(){
@@ -554,6 +556,15 @@
 					if( !!Editor.config.canvas.readonly ){
 						$('[contenteditable]', Editor.getDocument()).attr('contenteditable', 'false');
 					}
+					Editor.fireJobs(Trex.Ev.__EDITOR_CONTENT_CHANGED);
+				});
+				
+				Editor.observeJob( Trex.Ev.__EDITOR_CONTENT_CHANGED, function(){
+					Editor._removeDisallowedContent();
+				});
+				
+				$(Editor.getDocument()).on("input", function(){ 
+					Editor.fireJobs(Trex.Ev.__EDITOR_CONTENT_CHANGED);
 				});
 				
 				// Prevent the backspace key from navigating back.
@@ -796,6 +807,19 @@
 	     			dataType: "script"
 	     		});
 	     	}
+		},
+		
+		_removeDisallowedContent: function(){
+			var p = Editor.getCanvas().getCurrentPanel();
+			// clean content only if in html mode
+			if( p.wysiwygDoc ){
+				$("[style*='mso-'], [style*='-ms-'], [style*='letter-spacing']", p.getDocument() ).each(function () {
+				  var el = this;
+				  el.style.cssText = el.style.cssText.replace(/(^|;)\s*mso-[^;]+/g, '');
+				  el.style.cssText = el.style.cssText.replace(/(^|;)\s*-ms-[^;]+/g, '');
+				  el.style.cssText = el.style.cssText.replace(/(^|;)\s*letter-spacing[^;]+/g, '');
+				});
+			}
 		}
 	});
 	

@@ -80,7 +80,10 @@
 			if (this.canvasConfig.readonly) {
 				console.log('this.wysiwygDoc.body.contentEditable = _FALSE');
 				this.wysiwygDoc.body.contentEditable = _FALSE;
-				this.wysiwygDoc.designMode = "off";
+				
+				// cause errors on IE10
+				//this.wysiwygDoc.designMode = "Off";
+				
 				return;
 			}
 

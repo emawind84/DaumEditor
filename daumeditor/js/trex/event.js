@@ -25,6 +25,10 @@
 		 *	});
          */
         __EDITOR_LOAD_DATA_END: 'editor.load.data.end',
+        /**
+         * Fired everytime the content of the editor is changed
+         */
+        __EDITOR_CONTENT_CHANGED: 'editor.content.changed',
 		/**
 		 * wysiwyg 영역에 발생하는 keydown 이벤트
 		 * @example
