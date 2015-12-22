@@ -507,7 +507,7 @@
 							image: {
 								objstyle: {
 									height: "auto", // really important or the image will not be rendered on pdf! 
-									width: "auto" 
+									width: "100%" 
 								}
 							}
 						}
@@ -605,12 +605,12 @@
 			} else {
 				if(typeof param === "undefined" || !!param) {
 					Editor.__PANEL_READONLY = true;
-					$("#tx_canvas_wysiwyg").contents().find("body").attr( "contentEditable", "false" );
+					$("#tx_canvas_wysiwyg").contents().find("[contenteditable]").attr( "contenteditable", "false" );
 					//$('.readonlyDiv').css('display', '');
 					//$('.tx-toolbar').css('display', 'none');
 				} else {
 					Editor.__PANEL_READONLY = false;
-					$("#tx_canvas_wysiwyg").contents().find("body").attr( "contentEditable", "true" );
+					$("#tx_canvas_wysiwyg").contents().find("[contenteditable]").attr( "contenteditable", "true" );
 					//$("#tx_canvas_wysiwyg").contents().find(".tx-content-container").remove('.readonlyDiv');
 					//$('.readonlyDiv').css('display', 'none');
 					//$('.tx-toolbar').css('display', '');
@@ -819,6 +819,9 @@
 				  el.style.cssText = el.style.cssText.replace(/(^|;)\s*-ms-[^;]+/g, '');
 				  el.style.cssText = el.style.cssText.replace(/(^|;)\s*letter-spacing[^;]+/g, '');
 				});
+				
+				// remove all script tags
+				$('script', p.getDocument()).remove();
 			}
 		}
 	});
