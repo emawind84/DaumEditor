@@ -208,29 +208,32 @@
 		 * <p>개발 환경에서 페이지 로딩시 module 불러오기</p>
 		 * @param moduleName {string} e.g. trex/header.js
 		 */
-		loadModule: function(moduleName) {
+		loadModule: function(oHead) {
 			function isModuleNameNotPath(name) {
 				return !name.match(/^((https?:|file:|)\/\/|\.\.\/|\/)/);
 			}
 			
-			var url = isModuleNameNotPath(moduleName) ? this.getJSBasePath() + moduleName : moduleName;
-			if (DEFAULT_OPTIONS.environment === ENV_DEVELOPMENT) {
-				url = url + '?dummy=' + new Date().getTime();				
+			return function(moduleName) {
+				var url = isModuleNameNotPath(moduleName) ? this.getJSBasePath() + moduleName : moduleName;
+				if (DEFAULT_OPTIONS.environment === ENV_DEVELOPMENT) {
+					url = url + '?dummy=' + new Date().getTime();				
+				}
+				
+				if ( document.body && ( !document.readyState 
+						|| 'complete|interactive'.indexOf( document.readyState ) != -1 ) ) 
+				{
+					var script = document.createElement( 'script' );
+					script.type = 'text/javascript';
+					oHead.appendChild( script );
+					script.src = url;
+					
+				} else {
+					//$("head").append('<script type="text/javascript" src="' + url + '" charset="utf-8"></script>');
+					document.write('<script type="text/javascript" src="' + url + '" charset="utf-8"></script>');
+				}
 			}
 			
-			if ( document.body && ( !document.readyState 
-					|| 'complete|interactive'.indexOf( document.readyState ) != -1 ) ) 
-			{
-				var script = document.createElement( 'script' );
-				script.type = 'text/javascript';
-				oHead.appendChild( script );
-				script.src = url;
-				
-			} else {
-				//$("head").append('<script type="text/javascript" src="' + url + '" charset="utf-8"></script>');
-				document.write('<script type="text/javascript" src="' + url + '" charset="utf-8"></script>');
-			}
-		},
+		}(document.head || document.getElementsByTagName("head")[0]),
 
 		/**
 		 * <p>페이지 로딩 완료 후 module 불러오기</p>
