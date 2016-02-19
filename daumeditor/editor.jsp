@@ -563,8 +563,23 @@
 					Editor._removeDisallowedContent();
 				});
 				
-				$(Editor.getDocument()).on("input", function(){ 
+				$(Editor.getDocument()).on("input", function(){
 					Editor.fireJobs(Trex.Ev.__EDITOR_CONTENT_CHANGED);
+				});
+				
+				$(Editor.getDocument()).on("paste", function(){
+					setTimeout(function (){
+						Editor.fireJobs(Trex.Ev.__EDITOR_CONTENT_CHANGED);
+						
+						// remove font-family style from the content only on paste
+						var p = Editor.getCanvas().getCurrentPanel();
+						if( p.wysiwygDoc ){
+							var ret = $( "[style*='font-family']", p.getDocument() ).each(function () {
+								var el = this;
+								el.style.cssText = el.style.cssText.replace(/(^|;)\s*font-family[^;]+/g, '');
+							});
+						}
+					}, 200);
 				});
 				
 				// Prevent the backspace key from navigating back.
@@ -813,11 +828,12 @@
 			var p = Editor.getCanvas().getCurrentPanel();
 			// clean content only if in html mode
 			if( p.wysiwygDoc ){
-				$("[style*='mso-'], [style*='-ms-'], [style*='letter-spacing']", p.getDocument() ).each(function () {
+				$("[style*='mso-'], [style*='-ms-'], [style*='letter-spacing'], font", p.getDocument() ).each(function () {
 				  var el = this;
 				  el.style.cssText = el.style.cssText.replace(/(^|;)\s*mso-[^;]+/g, '');
 				  el.style.cssText = el.style.cssText.replace(/(^|;)\s*-ms-[^;]+/g, '');
 				  el.style.cssText = el.style.cssText.replace(/(^|;)\s*letter-spacing[^;]+/g, '');
+				  el.removeAttribute('face');
 				});
 				
 				// remove all script tags
