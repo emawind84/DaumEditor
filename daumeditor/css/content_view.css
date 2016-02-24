@@ -1,22 +1,6 @@
 @import url(trex/viewer/container.css);
 @import url(trex/viewer/tool.css);
 
-body
-{
-	/* Font */
-	font-family: arial, meiryo, NanumGothicBoldWeb, 돋움, sans-serif;
-	font-size: 13px;
-	line-height: 1.6;
-
-	/* Text color */
-	color: #333;
-
-	/* Remove the background color to make it transparent */
-	background-color: #fff;
-
-	margin: 20px;
-}
-
 /*@@ SANGAH STUFF */
 
 /* center align for wrapper */
