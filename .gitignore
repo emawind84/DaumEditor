@@ -38,3 +38,7 @@ local.properties
 .svn/
 build/dist
 build/target
+
+# nodejs
+node_modules/
+daumeditor/server.js
