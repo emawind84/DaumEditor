@@ -27,7 +27,7 @@
 	}
 	.tx-fullscreen-line-box a.tx-attach-close { background:transparent url(../../../images/icon/editor/skin/01/btn_fold_box.gif?v=2) no-repeat; }
 
-	.tx-editor-fullscreen { background-color:#FFFFFF; left:0; min-width:800px; position:absolute; top:0; width:100%; z-index:60; }
+	.tx-editor-fullscreen { background-color:#FFFFFF; left:0; min-width:800px; position:absolute; top:0; width:100%; z-index:120; }
 	.tx-editor-fullscreen .tx-fullscreen{ background-position:-331px -132px; }
 	.tx-editor-fullscreen .tx-fullscreen-notice { display:block; }
 	.tx-editor-fullscreen .tx-fullscreen-line { display:block; }
