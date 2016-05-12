@@ -1,7 +1,7 @@
 /*==== container ====*/
-body, td, button {
+body, td, button, blockquote, pre {
 	/* Font */
-	font-family: arial, meiryo, NanumGothicBoldWeb, 돋움, sans-serif;
+	font-family: dotum, sans-serif;
 	font-size: 13px;
 	line-height: 1.6;
 }
